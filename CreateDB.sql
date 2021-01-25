@@ -1,5 +1,5 @@
 create database imaginethisdb;
-use imaginethisdb;
+\c imaginethisdb;
 
 CREATE TABLE feedback(
     feedback_id varchar(36),
@@ -28,3 +28,9 @@ CREATE TABLE conversion(
     c_timestamp int,
     primary key (conversion_id)
 );
+
+\dt;
+
+SELECT * FROM feedback;
+SELECT * FROM vote;
+SELECT * FROM conversion;
