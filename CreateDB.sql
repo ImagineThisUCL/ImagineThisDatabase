@@ -1,5 +1,3 @@
-create database imaginethisdb;
-\c imaginethisdb;
 
 CREATE TABLE feedback(
     feedback_id varchar(36),
@@ -11,7 +9,7 @@ CREATE TABLE feedback(
     primary key (feedback_id)
 );
 
-CREATE TABLE vote(
+CREATE TABLE votes(
     vote_id varchar(36),
     feedback_id varchar(36),
     user_id varchar(36),
@@ -21,7 +19,7 @@ CREATE TABLE vote(
     foreign key (feedback_id) references feedback(feedback_id)
 );
 
-CREATE TABLE conversion(
+CREATE TABLE conversions(
     conversion_id varchar(36),
     project_id varchar(22),
     user_id varchar(36),
@@ -29,8 +27,6 @@ CREATE TABLE conversion(
     primary key (conversion_id)
 );
 
-\dt;
-
 SELECT * FROM feedback;
-SELECT * FROM vote;
-SELECT * FROM conversion;
+SELECT * FROM votes;
+SELECT * FROM conversions;
