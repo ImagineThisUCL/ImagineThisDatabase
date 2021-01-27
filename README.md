@@ -10,3 +10,8 @@ sh start-container.sh
 ```
 
 This will create necessary volume, build container image and start the container. The script handles situations when the volume or container already exist.
+
+To connect to the database container from you local machine you can use the script `connect-to-db.sh`
+```bash
+sh connect-to-db.sh
+```
