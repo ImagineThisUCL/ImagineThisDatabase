@@ -24,4 +24,4 @@ fi
 docker build -t "$CONTAINER_NAME" .
 
 # Run the PostgreSQL container with linked volume and exposing port 5432
-docker run -v postgres-vol:/var/lib/postgresql/data -p 5432:5432 -d "$CONTAINER_NAME"
+docker run --name "$CONTAINER_NAME" -v postgres-vol:/var/lib/postgresql/data -p 5432:5432 -d "$CONTAINER_NAME"
