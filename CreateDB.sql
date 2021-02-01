@@ -1,3 +1,4 @@
+CREATE EXTENSION IF NOT EXISTS "pgcrypto";
 
 CREATE TABLE IF NOT EXISTS projects(
     project_id varchar(22),
@@ -5,7 +6,7 @@ CREATE TABLE IF NOT EXISTS projects(
 );
 
 CREATE TABLE IF NOT EXISTS feedbacks(
-    feedback_id uuid,
+    feedback_id uuid NOT NULL DEFAULT gen_random_uuid(),
     project_id varchar(22),
     user_id uuid,
     user_name varchar(40),
@@ -16,7 +17,7 @@ CREATE TABLE IF NOT EXISTS feedbacks(
 );
 
 CREATE TABLE IF NOT EXISTS votes(
-    vote_id uuid,
+    vote_id uuid NOT NULL DEFAULT gen_random_uuid(),
     feedback_id uuid,
     user_id uuid,
     vote int,
@@ -26,7 +27,7 @@ CREATE TABLE IF NOT EXISTS votes(
 );
 
 CREATE TABLE IF NOT EXISTS conversions(
-    conversion_id uuid,
+    conversion_id uuid NOT NULL DEFAULT gen_random_uuid(),
     project_id varchar(22),
     user_id uuid,
     c_timestamp bigint,
