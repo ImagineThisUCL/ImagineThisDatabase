@@ -1,32 +1,40 @@
+CREATE EXTENSION IF NOT EXISTS "pgcrypto";
 
-CREATE TABLE feedback(
-    feedback_id varchar(36),
+CREATE TABLE IF NOT EXISTS projects(
     project_id varchar(22),
-    user_id varchar(36),
+    primary key (project_id)
+);
+
+CREATE TABLE IF NOT EXISTS feedbacks(
+    feedback_id uuid NOT NULL DEFAULT gen_random_uuid(),
+    project_id varchar(22),
+    user_id uuid,
     user_name varchar(40),
     feedback_text text,
-    f_timestamp int,
-    primary key (feedback_id)
+    f_timestamp bigint,
+    primary key (feedback_id),
+    foreign key(project_id) references projects(project_id)
 );
 
-CREATE TABLE votes(
-    vote_id varchar(36),
-    feedback_id varchar(36),
-    user_id varchar(36),
+CREATE TABLE IF NOT EXISTS votes(
+    vote_id uuid NOT NULL DEFAULT gen_random_uuid(),
+    feedback_id uuid,
+    user_id uuid,
     vote int,
-    v_timestamp int,
+    v_timestamp bigint,
     primary key (vote_id),
-    foreign key (feedback_id) references feedback(feedback_id)
+    foreign key (feedback_id) references feedbacks(feedback_id)
 );
 
-CREATE TABLE conversions(
-    conversion_id varchar(36),
+CREATE TABLE IF NOT EXISTS conversions(
+    conversion_id uuid NOT NULL DEFAULT gen_random_uuid(),
     project_id varchar(22),
-    user_id varchar(36),
-    c_timestamp int,
+    user_id uuid,
+    c_timestamp bigint,
     primary key (conversion_id)
 );
 
-SELECT * FROM feedback;
+SELECT * FROM projects;
+SELECT * FROM feedbacks;
 SELECT * FROM votes;
 SELECT * FROM conversions;

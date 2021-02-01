@@ -1,9 +1,7 @@
 # ImagineThis PostgreSQL database
 This project contains scripts and configuration to setup a PostgreSQL Docker container for ImagineThis system.
 
-To build and run the container make sure you have installed `psql` client on you local machine.
-
-And then run 
+To build and run the container, execute the following command
 
 ```bash
 sh start-container.sh
