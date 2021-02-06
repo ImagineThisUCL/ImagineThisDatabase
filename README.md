@@ -13,3 +13,11 @@ To connect to the database container from you local machine you can use the scri
 ```bash
 sh connect-to-db.sh
 ```
+
+To stop and remove the container and DB volume, use the `wipe-db.sh`
+
+> Warning: This command will also wipe all the data stored in DB, so it should only be used for development purpose
+
+```shell
+sh wipe-db.sh
+```
