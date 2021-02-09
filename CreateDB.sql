@@ -8,6 +8,7 @@ CREATE TABLE IF NOT EXISTS users(
 
 CREATE TABLE IF NOT EXISTS projects(
     project_id varchar(22),
+    project_name text,
     primary key (project_id)
 );
 
