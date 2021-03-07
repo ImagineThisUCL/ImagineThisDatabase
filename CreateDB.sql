@@ -41,6 +41,8 @@ CREATE TABLE IF NOT EXISTS conversions(
     project_id varchar(22),
     user_id uuid,
     c_timestamp bigint,
+    conversion_status varchar(20),
+    publish_status varchar(20),
     primary key (conversion_id),
     foreign key(user_id) references users(user_id) on delete cascade on update cascade
 );
